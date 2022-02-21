@@ -7,7 +7,7 @@ pipeline {
     
     stage('Terraform Init') {
       steps {
-        sh "cd terraform-aks-k8s && terraform init -input=false"
+        sh "cd terraform-aks-k8s && terraform init -backend-config="storage_account_name=terraformaksstrgact" -backend-config="container_name=tfstate" -backend-config="access_key=B0MzLNte4wL+A7DRgUYk4uKEjUYFFLq2G2XG3UdnN912ZwFJihlDM6EXolJXEp6/t4opkn6zZVYY+AStsH/pIg==" -backend-config="key=codelab.microsoft.tfstate"
       }
     }
     
@@ -19,7 +19,7 @@ pipeline {
                 clientIdVariable: 'ARM_CLIENT_ID',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]) {
-                        sh "cd terraform-aks-k8s && terraform plan -out=tfplan -input=false -var-file='terraform.tfvars'"
+                        sh "cd terraform-aks-k8s && terraform plan -out=tfplan "
                         }
                 }
         }
@@ -33,7 +33,7 @@ pipeline {
                 clientIdVariable: 'ARM_CLIENT_ID',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]) {
-                        sh "cd terraform-aks-k8s && terraform apply -input=false --auto-approve tfplan "
+                        sh "cd terraform-aks-k8s && terraform apply out.plan --auto-approve "
                         }
                 }
         }
