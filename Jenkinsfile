@@ -17,8 +17,6 @@ pipeline {
                 credentialsId: '72638069-0faa-468f-8b96-bcc88be5343f',
                 subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
                 clientIdVariable: 'ARM_CLIENT_ID',
-                TF_VAR_client_id='72638069-0faa-468f-8b96-bcc88be5343f',
-                TF_VAR_client_secret='ARM_CLIENT_SECRET',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]) {
                         sh "cd terraform-aks-k8s && terraform plan -out=tfplan "
@@ -33,8 +31,6 @@ pipeline {
                 credentialsId: '72638069-0faa-468f-8b96-bcc88be5343f',
                 subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
                 clientIdVariable: 'ARM_CLIENT_ID',
-                TF_VAR_client_id='72638069-0faa-468f-8b96-bcc88be5343f',
-                TF_VAR_client_secret='ARM_CLIENT_SECRET',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]) {
                         sh "cd terraform-aks-k8s && terraform apply out.plan --auto-approve "
