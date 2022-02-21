@@ -10,7 +10,7 @@ provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "rg" {
-  name = "<resource_group_name>"
+  name = "azure-kstest"
   location = "<location>"
 }
 
