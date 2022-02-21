@@ -11,7 +11,7 @@ provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
   name = "azure-kstest"
-  location = "<location>"
+  location = "eastus"
 }
 
 # Your Terraform code goes here...
