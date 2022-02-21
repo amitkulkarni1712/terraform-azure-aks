@@ -7,7 +7,7 @@ pipeline {
     
     stage('Terraform Init') {
       steps {
-        sh "terraform init -input=false"
+        sh "cd terraform-azure-aks && terraform init -input=false"
       }
     }
     
@@ -19,7 +19,7 @@ pipeline {
                 clientIdVariable: 'ARM_CLIENT_ID',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]) {
-                        sh "terraform plan -out=tfplan -input=false -var-file='terraform.tfvars'"
+                        sh "cd terraform-azure-aks && terraform plan -out=tfplan -input=false -var-file='terraform.tfvars'"
                         }
                 }
         }
@@ -33,7 +33,7 @@ pipeline {
                 clientIdVariable: 'ARM_CLIENT_ID',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]) {
-                        sh "terraform apply -input=false --auto-approve tfplan && sleep 600 && terraform destroy --auto-approve"
+                        sh "cd terraform-azure-aks && terraform apply -input=false --auto-approve tfplan "
                         }
                 }
         }
