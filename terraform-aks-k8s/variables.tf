@@ -14,11 +14,11 @@ variable "dns_prefix" {
 }
 
 variable cluster_name {
-    default = "k8stest"
+    default = "kstest"
 }
 
 variable resource_group_name {
-    default = "azure-k8stest"
+    default = "azure-kstest"
 }
 
 variable location {
