@@ -7,7 +7,7 @@ pipeline {
     
     stage('Terraform Init') {
       steps {
-        sh "cd terraform-aks-k8s && terraform init -backend-config="storage_account_name=terraformaksstrgact" -backend-config="container_name=tfstate" -backend-config="access_key=B0MzLNte4wL+A7DRgUYk4uKEjUYFFLq2G2XG3UdnN912ZwFJihlDM6EXolJXEp6/t4opkn6zZVYY+AStsH/pIg==" -backend-config="key=codelab.microsoft.tfstate"
+        sh "cd terraform-aks-k8s && terraform init -backend-config="storage_account_name=terraformaksstrgact" -backend-config="container_name=tfstate" -backend-config="access_key=B0MzLNte4wL+A7DRgUYk4uKEjUYFFLq2G2XG3UdnN912ZwFJihlDM6EXolJXEp6/t4opkn6zZVYY+AStsH/pIg==" -backend-config="key=codelab.microsoft.tfstate""
       }
     }
     
